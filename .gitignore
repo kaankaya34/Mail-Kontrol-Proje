@@ -1,0 +1,33 @@
+# Veritabanı dosyaları
+*.db
+*.sqlite
+/mails.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.venv/
+*.egg-info/
+
+# Ortam değişkenleri
+.env
+.env.*
+
+# Docker volume verileri
+ollama_data/
+mysql_data/
+
+# Editör & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# Gereksiz bat dosyaları
+calistir.bat
+setup_db.bat
+run.bat

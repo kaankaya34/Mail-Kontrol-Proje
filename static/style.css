@@ -1,0 +1,316 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f0f1a;
+    color: #e0e0e0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #7c9cff;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+p.subtitle {
+    color: #888;
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.arsiv-link {
+    display: inline-block;
+    color: #7c9cff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 8px 18px;
+    border: 1px solid #7c9cff44;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.arsiv-link:hover { background: #7c9cff22; }
+
+.card {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    border-radius: 16px;
+    padding: 30px;
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 20px;
+}
+
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    background: #12122a;
+    border: 1px solid #2a2a4a;
+    transition: all 0.4s ease;
+}
+
+.step.active {
+    border-color: #7c9cff;
+    background: #1a1a3e;
+}
+
+.step.done {
+    border-color: #4caf88;
+    background: #0d2a1e;
+}
+
+.step.error {
+    border-color: #ff6b6b;
+    background: #2a0d0d;
+}
+
+.icon {
+    font-size: 1.6rem;
+    min-width: 40px;
+    text-align: center;
+}
+
+.step-info h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ccc;
+}
+
+.step.active .step-info h3 { color: #a0b4ff; }
+.step.done .step-info h3 { color: #6fcf97; }
+.step.error .step-info h3 { color: #ff6b6b; }
+
+.step-info p {
+    font-size: 0.82rem;
+    color: #666;
+    margin-top: 3px;
+}
+
+.step.active .step-info p { color: #8899cc; }
+.step.done .step-info p { color: #4a9e74; }
+
+.spinner {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #7c9cff33;
+    border-top: 2px solid #7c9cff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-left: auto;
+}
+
+.step.active .spinner { display: block; }
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.result-card {
+    display: none;
+    background: #1a1a2e;
+    border-radius: 16px;
+    padding: 30px;
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    border: 2px solid #2a2a4a;
+    margin-bottom: 20px;
+}
+
+.result-card.show { display: block; }
+.result-card.onemli { border-color: #ff9800; }
+.result-card.onemsiz { border-color: #4caf50; }
+
+.result-label {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.onemli .result-label { color: #ff9800; }
+.onemsiz .result-label { color: #4caf50; }
+
+.mail-info {
+    margin-top: 20px;
+    background: #12122a;
+    border-radius: 10px;
+    padding: 16px 20px;
+    text-align: left;
+}
+
+.mail-info p { margin-bottom: 8px; font-size: 0.88rem; color: #aaa; }
+.mail-info span { color: #ddd; }
+
+button {
+    padding: 12px 32px;
+    background: #7c9cff;
+    color: #0f0f1a;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover { background: #5578dd; }
+button:disabled { background: #3a3a5a; color: #666; cursor: not-allowed; }
+
+.waiting {
+    color: #555;
+    font-size: 0.85rem;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.gecmis-card {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    border-radius: 16px;
+    padding: 30px;
+    width: 100%;
+    max-width: 700px;
+    margin-top: 20px;
+}
+
+.gecmis-card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+}
+
+.onemli-card { border-color: #ff980055; }
+.onemli-card h2 { color: #ff9800; }
+.onemsiz-card { border-color: #4caf5055; }
+.onemsiz-card h2 { color: #4caf50; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+thead th {
+    text-align: left;
+    padding: 8px 12px;
+    color: #666;
+    border-bottom: 1px solid #2a2a4a;
+    font-weight: 600;
+}
+
+tbody tr {
+    border-bottom: 1px solid #1e1e36;
+    transition: background 0.2s;
+}
+
+tbody tr:hover { background: #12122a; }
+
+tbody td {
+    padding: 10px 12px;
+    color: #ccc;
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+td.bos { color: #555; text-align: center; }
+
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.badge.onemli { background: #ff980022; color: #ff9800; }
+.badge.onemsiz { background: #4caf5022; color: #4caf50; }
+
+/* Istatistik Kartlari */
+.istatistik-wrap {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 20px;
+}
+
+.istat-kart {
+    flex: 1;
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+}
+
+.istat-sayi {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #7c9cff;
+}
+
+.istat-etiket {
+    font-size: 0.78rem;
+    color: #555;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.istat-kart.onemli-kart { border-color: #ff980033; }
+.istat-kart.onemli-kart .istat-sayi { color: #ff9800; }
+.istat-kart.onemsiz-kart { border-color: #4caf5033; }
+.istat-kart.onemsiz-kart .istat-sayi { color: #4caf50; }
+
+/* Duzelt Butonu */
+.duzelt-btn {
+    margin-top: 14px;
+    padding: 8px 22px;
+    background: #e67e22;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.duzelt-btn:hover { background: #d35400; }
+
+/* Tarama Log */
+.tarama-log-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #1e1e36;
+    font-size: 0.82rem;
+    color: #777;
+}
+.tarama-log-item:last-child { border-bottom: none; }
+.tarama-log-item .log-sayi { color: #7c9cff; font-weight: 600; }
+.tarama-log-item .log-tamamlandi { color: #4caf88; font-size: 0.75rem; }
+.tarama-log-item .log-durduruldu { color: #ff6b6b; font-size: 0.75rem; }

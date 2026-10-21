@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail Kontrol Sistemi</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Mail Kontrol Sistemi</h1>
+    <p class="subtitle">Hosgeldin, {{ session.user_ad }}</p>
+    <div class="nav-links">
+        <a href="/arsiv" class="arsiv-link">Mail Arsivi</a>
+        <a href="/ayarlar" class="arsiv-link">Ayarlar</a>
+        <a href="/cikis" class="arsiv-link" style="color:#ff6b6b;border-color:#ff6b6b44">Cikis</a>
+    </div>
+
+    <!-- Ozet Kartlar -->
+    <div class="istatistik-wrap" id="istatistikWrap">
+        <div class="istat-kart onemli-kart">
+            <div class="istat-sayi" id="istatOnemli">-</div>
+            <div class="istat-etiket">Onemli</div>
+        </div>
+        <div class="istat-kart onemsiz-kart">
+            <div class="istat-sayi" id="istatOnemsiz">-</div>
+            <div class="istat-etiket">Onemsiz</div>
+        </div>
+        <div class="istat-kart">
+            <div class="istat-sayi" id="istatSonMail" style="font-size:0.9rem;">-</div>
+            <div class="istat-etiket">Son Tarama</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="steps">
+            <div class="step" id="step1">
+                <div class="icon">[ ]</div>
+                <div class="step-info">
+                    <h3>Mail Sunucusuna Bağlanılıyor</h3>
+                    <p id="step1-desc">Bekleniyor...</p>
+                </div>
+                <div class="spinner"></div>
+            </div>
+            <div class="step" id="step2">
+                <div class="icon">[ ]</div>
+                <div class="step-info">
+                    <h3>Son Mail Çekiliyor</h3>
+                    <p id="step2-desc">Bekleniyor...</p>
+                </div>
+                <div class="spinner"></div>
+            </div>
+            <div class="step" id="step3">
+                <div class="icon">[ ]</div>
+                <div class="step-info">
+                    <h3>Yapay Zeka Analiz Ediyor</h3>
+                    <p id="step3-desc">Bekleniyor...</p>
+                </div>
+                <div class="spinner"></div>
+            </div>
+            <div class="step" id="step4">
+                <div class="icon">[ ]</div>
+                <div class="step-info">
+                    <h3>Sonuç Hazır</h3>
+                    <p id="step4-desc">Bekleniyor...</p>
+                </div>
+                <div class="spinner"></div>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div id="progressWrap" style="display:none; margin-top:16px; padding:0 4px;">
+            <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:#666;margin-bottom:6px;">
+                <span id="progressText">0 / 0 mail</span>
+                <span id="progressPct">0%</span>
+            </div>
+            <div style="background:#12122a;border-radius:6px;height:8px;overflow:hidden;">
+                <div id="progressBar" style="height:100%;background:linear-gradient(90deg,#7c9cff,#4caf88);width:0%;transition:width 0.4s ease;border-radius:6px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="result-card" id="resultCard">
+        <div class="result-label" id="resultLabel"></div>
+        <div class="mail-info">
+            <p>Kimden: <span id="mailGonderen"></span></p>
+            <p>Konu: <span id="mailKonu"></span></p>
+            <p>Tarih: <span id="mailTarih"></span></p>
+        </div>
+        <button class="duzelt-btn" id="duzeltBtn" onclick="kararDuzelt()" style="display:none;">Bu Yanlis &rarr; Degistir</button>
+    </div>
+
+
+    <button id="startBtn" onclick="baslat()">Analizi Baslat</button>
+    <button id="continueBtn" onclick="devamEt()" style="display:none; background:#27ae60;">Kaldigi Yerden Devam Et</button>
+    <button id="stopBtn" onclick="durdur()" style="display:none; background:#c0392b;">Analizi Durdur</button>
+    <p class="waiting" id="waitingText"></p>
+
+    <div class="gecmis-card onemli-card" id="gecmisOnemliCard">
+        <h2>Onemli Mailler</h2>
+        <table id="onemliTable">
+            <thead>
+                <tr><th>Tarih</th><th>Kimden</th><th>Konu</th></tr>
+            </thead>
+            <tbody id="onemliBody">
+                <tr><td colspan="3" class="bos">Henüz önemli mail yok.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="gecmis-card onemsiz-card" id="gecmisOnemsizCard">
+        <h2>Onemsiz Mailler</h2>
+        <table id="onemsizTable">
+            <thead>
+                <tr><th>Tarih</th><th>Kimden</th><th>Konu</th></tr>
+            </thead>
+            <tbody id="onemsizBody">
+                <tr><td colspan="3" class="bos">Henüz önemsiz mail yok.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Tarama Gecmisi -->
+    <div class="gecmis-card" id="taramaLogCard" style="display:none; margin-top:20px;">
+        <h2 style="margin-bottom:12px; font-size:1rem; color:#7c9cff;">Tarama Gecmisi</h2>
+        <div id="taramaLogListesi"></div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

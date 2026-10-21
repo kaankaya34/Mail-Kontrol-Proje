@@ -1,0 +1,186 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f0f1a;
+    color: #e0e0e0;
+    min-height: 100vh;
+}
+
+header {
+    background: #1a1a2e;
+    border-bottom: 1px solid #2a2a4a;
+    padding: 16px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 { font-size: 1.3rem; color: #7c9cff; }
+
+.btn-back {
+    text-decoration: none;
+    color: #7c9cff;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border: 1px solid #7c9cff44;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.btn-back:hover { background: #7c9cff22; }
+
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ekle-card, .liste-card {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    border-radius: 16px;
+    padding: 28px;
+}
+
+.onemli-liste { border-color: #ff980055; }
+.onemli-liste h2 { color: #ff9800; }
+.onemsiz-liste { border-color: #4caf5055; }
+.onemsiz-liste h2 { color: #4caf50; }
+.spam-liste { border-color: #ff6b6b55; }
+.spam-liste h2 { color: #ff6b6b; }
+
+.ekle-card h2 {
+    font-size: 1rem;
+    color: #7c9cff;
+    margin-bottom: 8px;
+}
+
+.aciklama {
+    font-size: 0.82rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.form-row select, .form-row input {
+    padding: 10px 14px;
+    background: #12122a;
+    border: 1px solid #2a2a4a;
+    border-radius: 8px;
+    color: #e0e0e0;
+    font-size: 0.88rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-row select:focus, .form-row input:focus { border-color: #7c9cff; }
+
+.form-row input { flex: 1; min-width: 180px; }
+
+.form-row button {
+    padding: 10px 22px;
+    background: #7c9cff;
+    color: #0f0f1a;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.form-row button:hover { background: #5578dd; }
+
+.hata-mesaj {
+    color: #ff6b6b;
+    font-size: 0.82rem;
+    margin-top: 10px;
+    min-height: 18px;
+}
+
+/* Kural listesi */
+.kural-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: #12122a;
+    border: 1px solid #2a2a4a;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: border-color 0.2s;
+}
+
+.kural-item:hover { border-color: #3a3a5a; }
+
+.kural-tur {
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #2a2a4a;
+    color: #888;
+    white-space: nowrap;
+}
+
+.kural-deger {
+    flex: 1;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.kural-karar {
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.kural-karar.onemli { background: #ff980022; color: #ff9800; }
+.kural-karar.onemsiz { background: #4caf5022; color: #4caf50; }
+.kural-karar.spam { background: #ff6b6b22; color: #ff6b6b; }
+
+.kural-tarih {
+    font-size: 0.75rem;
+    color: #444;
+    white-space: nowrap;
+}
+
+.sil-btn {
+    background: none;
+    border: 1px solid #ff6b6b33;
+    color: #ff6b6b;
+    border-radius: 6px;
+    padding: 5px 12px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background 0.2s;
+}
+
+.sil-btn:hover { background: #ff6b6b22; }
+
+.bos {
+    color: #444;
+    text-align: center;
+    padding: 30px;
+    font-size: 0.88rem;
+}

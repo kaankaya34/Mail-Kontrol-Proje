@@ -1,0 +1,194 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f0f1a;
+    color: #e0e0e0;
+    min-height: 100vh;
+}
+
+header {
+    background: #1a1a2e;
+    border-bottom: 1px solid #2a2a4a;
+    padding: 16px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    font-size: 1.3rem;
+    color: #7c9cff;
+}
+
+.btn-back {
+    text-decoration: none;
+    color: #7c9cff;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border: 1px solid #7c9cff44;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.btn-back:hover { background: #7c9cff22; }
+
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 10px 24px;
+    border-radius: 10px;
+    border: 1px solid #2a2a4a;
+    background: #1a1a2e;
+    color: #888;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tab:hover { border-color: #7c9cff55; color: #ccc; }
+
+.tab.active.onemli-tab { border-color: #ff9800; color: #ff9800; background: #ff980011; }
+.tab.active.onemsiz-tab { border-color: #4caf50; color: #4caf50; background: #4caf5011; }
+.tab.active { border-color: #7c9cff; color: #7c9cff; background: #7c9cff11; }
+
+.sayac {
+    background: #2a2a4a;
+    border-radius: 20px;
+    padding: 2px 9px;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.tab.active .sayac { background: currentColor; color: #0f0f1a; }
+
+.arama-kutusu {
+    margin-bottom: 16px;
+}
+
+.arama-kutusu input {
+    width: 100%;
+    padding: 12px 16px;
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    border-radius: 10px;
+    color: #e0e0e0;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.arama-kutusu input:focus { border-color: #7c9cff; }
+.arama-kutusu input::placeholder { color: #555; }
+
+.tablo-wrap {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.tablo-wrap.gizli { display: none; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+thead th {
+    padding: 14px 16px;
+    text-align: left;
+    color: #555;
+    font-weight: 600;
+    border-bottom: 1px solid #2a2a4a;
+    background: #12122a;
+}
+
+tbody tr {
+    border-bottom: 1px solid #1c1c30;
+    transition: background 0.15s;
+}
+
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: #12122a; }
+
+tbody td {
+    padding: 12px 16px;
+    color: #ccc;
+    max-width: 320px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+tbody td:first-child { color: #555; min-width: 130px; }
+
+.bos {
+    text-align: center;
+    color: #444;
+    padding: 40px !important;
+}
+
+#panel-onemli thead { border-bottom-color: #ff980033; }
+#panel-onemsiz thead { border-bottom-color: #4caf5033; }
+
+.tabs-ve-export {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.tabs-ve-export .tabs {
+    margin-bottom: 0;
+}
+
+.aksiyon-btn {
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    border: 1px solid #7c9cff44;
+    background: transparent;
+    color: #7c9cff;
+    border-radius: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
+}
+.aksiyon-btn:hover { background: #7c9cff22; }
+.aksiyon-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.export-btn {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    background: #0d2a1e;
+    color: #4caf88;
+    border: 1px solid #4caf5044;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+.export-btn:hover { background: #1a3a2a; }

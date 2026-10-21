@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtre Kuralları</title>
+    <link rel="stylesheet" href="/static/kurallar.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <h1>Filtre Kurallari</h1>
+            <a href="/" class="btn-back">← Kontrol Paneli</a>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="ekle-card">
+            <h2>Yeni Kural Ekle</h2>
+            <p class="aciklama">Belirlediğin gönderen veya konu içeriyorsa AI'a sormadan direkt karar verilir.</p>
+
+            <div class="form-row">
+                <select id="turSelect">
+                    <option value="gonderen">Gönderen içeriyorsa</option>
+                    <option value="konu">Konu içeriyorsa</option>
+                </select>
+                <input type="text" id="degerInput" placeholder="örn: github.com veya fatura">
+                <select id="kararSelect">
+                    <option value="ONEMLI">→ ÖNEMLİ</option>
+                    <option value="ONEMSIZ">→ ÖNEMSİZ</option>
+                </select>
+                <button onclick="kuralEkle()">+ Ekle</button>
+            </div>
+            <p class="hata-mesaj" id="hataMesaj"></p>
+        </div>
+
+        <div class="liste-card onemli-liste">
+            <h2>Onemli Kurallar</h2>
+            <div id="onemliKuralListesi"><p class="bos">Yükleniyor...</p></div>
+        </div>
+
+        <div class="liste-card onemsiz-liste">
+            <h2>Onemsiz Kurallar</h2>
+            <div id="onemsizKuralListesi"><p class="bos">Yükleniyor...</p></div>
+        </div>
+
+
+
+    </div>
+
+    <script src="/static/kurallar.js"></script>
+</body>
+</html>

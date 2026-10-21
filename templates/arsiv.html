@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail Arşivi</title>
+    <link rel="stylesheet" href="/static/arsiv.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <h1>Mail Arsivi</h1>
+            <div style="display:flex;gap:10px">
+                <a href="/kurallar" class="btn-back">Kurallar</a>
+                <a href="/" class="btn-back">← Kontrol Paneli</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="tabs-ve-export">
+            <div class="tabs">
+                <button class="tab onemli-tab active" onclick="sekmeGoster('onemli', this)">
+                    Onemli <span class="sayac" id="onemliSayac">0</span>
+                </button>
+                <button class="tab onemsiz-tab" onclick="sekmeGoster('onemsiz', this)">
+                    Onemsiz <span class="sayac" id="onemsizSayac">0</span>
+                </button>
+            </div>
+            <button class="export-btn" onclick="csvExport()">&#8595; CSV Indir</button>
+        </div>
+
+        <div class="arama-kutusu">
+            <input type="text" id="aramaInput" placeholder="Konu veya gönderen ara..." oninput="ara()">
+        </div>
+
+        <!-- Önemli Tablosu -->
+        <div class="tablo-wrap" id="panel-onemli">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tarih</th>
+                        <th>Kimden</th>
+                        <th>Konu</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="onemliBody">
+                    <tr><td colspan="4" class="bos">Yükleniyor...</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Önemsiz Tablosu -->
+        <div class="tablo-wrap gizli" id="panel-onemsiz">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tarih</th>
+                        <th>Kimden</th>
+                        <th>Konu</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="onemsizBody">
+                    <tr><td colspan="4" class="bos">Yükleniyor...</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="/static/arsiv.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayit Ol</title>
+    <link rel="stylesheet" href="/static/auth.css">
+</head>
+<body>
+    <div class="auth-box">
+        <h1>Mail Kontrol</h1>
+        <p class="subtitle">Yeni hesap olusturun</p>
+
+        <div class="bilgi-kutusu" id="bilgiKutusu">
+            <div class="bilgi-baslik" onclick="bilgiToggle()">
+                <strong>Gmail Uygulama Sifresi Nasil Alinir?</strong>
+                <span class="bilgi-ok" id="bilgiOk">&#9650;</span>
+            </div>
+            <div class="bilgi-icerik" id="bilgiIcerik">
+                <p>Kayit sonrasi Ayarlar sayfasindan Gmail hesabinizi baglayacaksiniz. Normal Gmail sifreniz calismaz, ozel uygulama sifresi gerekir:</p>
+                <ol>
+                    <li><strong>2 Adimli Dogrulama</strong>'yi aktif edin:<br><a href="https://myaccount.google.com/security" target="_blank">myaccount.google.com/security</a></li>
+                    <li><strong>Uygulama Sifreleri</strong> sayfasini acin:<br><a href="https://myaccount.google.com/apppasswords" target="_blank">myaccount.google.com/apppasswords</a></li>
+                    <li>Uygulama adi olarak <code>Mail Kontrol</code> yazin ve <strong>Olustur</strong>'a tiklayin.</li>
+                    <li>Ekranda cikan <code>xxxx xxxx xxxx xxxx</code> formatindaki sifreyi kopyalayin.</li>
+                    <li>Kayit sonrasi <strong>Ayarlar</strong> sayfasindan bu sifreyi girin.</li>
+                </ol>
+            </div>
+        </div>
+        <script>
+            function bilgiToggle() {
+                var icerik = document.getElementById('bilgiIcerik');
+                var ok = document.getElementById('bilgiOk');
+                if (icerik.style.display === 'none') {
+                    icerik.style.display = 'block';
+                    ok.innerHTML = '&#9650;';
+                } else {
+                    icerik.style.display = 'none';
+                    ok.innerHTML = '&#9660;';
+                }
+            }
+        </script>
+
+        {% if hata %}
+        <div class="hata">{{ hata }}</div>
+        {% endif %}
+
+        <form method="POST">
+            <div class="form-grup">
+                <label>Adiniz</label>
+                <input type="text" name="ad" placeholder="Adiniz" required>
+            </div>
+            <div class="form-grup">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="ornek@gmail.com" required>
+            </div>
+            <div class="form-grup">
+                <label>Sifre</label>
+                <input type="password" name="sifre" placeholder="••••••••" required>
+            </div>
+            <button type="submit">Kayit Ol</button>
+        </form>
+
+        <p class="alt-link">Zaten hesabiniz var mi? <a href="/login">Giris Yap</a></p>
+    </div>
+</body>
+</html>

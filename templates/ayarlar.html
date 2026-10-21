@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayarlar</title>
+    <link rel="stylesheet" href="/static/auth.css">
+</head>
+<body>
+    <div class="auth-box wide">
+        <div class="top-nav">
+            <h1>Ayarlar</h1>
+            <a href="/" class="btn-back">Ana Sayfa</a>
+        </div>
+
+        {% if mesaj %}
+        <div class="basari">{{ mesaj }}</div>
+        {% endif %}
+
+        <form method="POST">
+            <div class="bilgi-kutusu">
+                <strong>Gmail Uygulama Sifresi Nedir?</strong>
+                <p>Normal Gmail sifrenizi kullanmayin. Google, 3. parti uygulamalar icin ozel bir sifre uretir.</p>
+                <ol>
+                    <li>Once Gmail hesabinizda <strong>2 Adimli Dogrulama</strong>'yi acin:<br>
+                        <a href="https://myaccount.google.com/security" target="_blank">myaccount.google.com/security</a>
+                    </li>
+                    <li>Ardindan su adrese gidin:<br>
+                        <a href="https://myaccount.google.com/apppasswords" target="_blank">myaccount.google.com/apppasswords</a>
+                    </li>
+                    <li>"Diger" secin, "Mail Kontrol" yazin, <strong>Olustur</strong>'a basin.</li>
+                    <li>Google size <code>xxxx xxxx xxxx xxxx</code> formatinda bir sifre verecek — onu asagiya girin.</li>
+                </ol>
+            </div>
+            <div class="form-grup">
+                <label>Gmail Hesabi</label>
+                <input type="email" name="gmail_hesabi" placeholder="ornek@gmail.com"
+                       value="{{ kullanici.gmail_hesabi or '' }}">
+            </div>
+            <div class="form-grup">
+                <label>Gmail Uygulama Sifresi</label>
+                <input type="password" name="gmail_sifre" placeholder="xxxx xxxx xxxx xxxx"
+                       value="{{ kullanici.gmail_sifre or '' }}">
+            </div>
+            <button type="submit">Kaydet</button>
+        </form>
+
+        <hr>
+        <p class="alt-link"><a href="/cikis" style="color:#ff6b6b">Cikis Yap</a></p>
+    </div>
+</body>
+</html>
